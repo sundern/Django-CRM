@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-1-=q(ci7h%qvptekkj!pv*m)1ru@$sgd+b1(j7%vc7ihdo6ve8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -51,10 +52,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dcrm.urls'
 
+WEBSITE_DIR = os.path.join(BASE_DIR, 'website', 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [WEBSITE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
